@@ -1,0 +1,606 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Carme", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+/* Header & Nav */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    min-height: 80px;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    gap: 10px;
+    font-size: clamp(24px, 4vw, 40px);
+}
+.logo-demon { color: white; font-weight: 600; }
+.logo-slayer { color: red; font-weight: 200; }
+
+.nav-container {
+    display: flex;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    font-size: clamp(14px, 1.5vw, 18px); /* reduced for narrower screens */
+    align-items: center;
+    list-style: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.bar {
+    text-decoration: none; 
+    color: red; 
+    border: 3px solid red; 
+    border-radius: 20px; 
+    padding: 6px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    text-align: center;
+    min-height: 44px;
+}
+.bar:hover, .bar:focus {
+    background-color: red;
+    color: black;
+}
+
+.content {
+    text-decoration: none; 
+    color: black; 
+    border: 3px solid red; 
+    border-radius: 20px; 
+    padding: 6px 15px;
+    background-color: red;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background-color: #111;
+    border-top: 1px solid red;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-bottom: 2px solid red;
+    padding-bottom: 5px;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.footer-text {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    transition: color 0.3s;
+}
+
+.footer-link:hover, .footer-link:focus {
+    color: red;
+}
+
+.footer-link svg {
+    flex-shrink: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 20px;
+    min-height: clamp(420px, 70vh, 800px);
+    background-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%), url('./23 24.jpg');
+    background-size: cover;
+    background-position: center top;
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(36px, 6vw, 72px);
+    margin-bottom: 10px;
+    display: flex;
+    gap: 12px;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 3vw, 24px);
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid red;
+}
+
+.hero-btn.primary {
+    background-color: red;
+    color: white;
+}
+
+.hero-btn.secondary {
+    background-color: transparent;
+    color: white;
+}
+
+.hero-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    transform: scale(1.04);
+}
+
+.hero-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Malumot */
+.malumot-main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+.malumot-title {
+    font-size: clamp(28px, 5vw, 40px);
+    text-align: center;
+    margin-bottom: 30px;
+}
+.malumot-text {
+    font-size: clamp(18px, 2.5vw, 32px);
+    line-height: 1.6;
+}
+
+/* Qaxramonlar */
+.heroes-main {
+    padding: 20px;
+    flex: 1;
+}
+.page-title {
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 32px 0 24px;
+    text-align: center;
+}
+.heroes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.hero-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #1a1a1a;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,0,0,0.25);
+    transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+}
+.hero-card:hover {
+    border-color: red;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: translateY(-4px);
+}
+.hero-img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+    flex-shrink: 0;
+    background-color: #222;
+}
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+.hero-name {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.hero-name-first { font-weight: 600; color: white; }
+.hero-name-last { color: red; }
+.hero-desc {
+    font-size: clamp(0.9rem, 1vw, 1.05rem);
+    line-height: 1.5;
+    color: #ddd;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+.hero-desc.expanded {
+    -webkit-line-clamp: unset;
+}
+.read-more-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 4px 0;
+    margin-top: 4px;
+}
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Anime (Video Player) */
+.anime-main {
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    flex: 1;
+    padding: 20px;
+    gap: 24px;
+    width: 100%;
+    margin: 0;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.video-frame {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: calc(100vh - 260px);
+    object-fit: contain;
+    border: 2px solid red;
+    border-radius: 20px;
+}
+
+.video-title {
+    font-size: clamp(20px, 4vw, 36px);
+    text-align: left;
+}
+
+/* Episodes wrapper and list */
+.episodes-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.episodes-title {
+    font-size: clamp(18px, 3vw, 24px);
+    color: white;
+}
+
+.episodes-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 12px;
+    align-content: flex-start;
+    overflow-y: auto;
+    
+    /* Custom Scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: red transparent;
+}
+
+.episodes-list::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.episodes-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.episodes-list::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 10px;
+}
+
+/* Compact buttons */
+.qismlar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid red;
+    border-radius: 20px;
+    background-color: transparent; 
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    min-height: 36px;
+}
+
+.qismlar:hover {
+    background-color: #222;
+    border: 1px solid red;
+    box-shadow: 0 0 5px red;
+}
+
+.qismlar:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.qismlar.active, .qismlar[aria-current="true"] {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border: 1px solid red;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 767px) {
+    /* Footer: 1 column on mobile */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hamburger { display: block; }
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        padding: 20px;
+        border-top: 2px solid #333;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .nav.open { display: flex; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Footer: 2 columns at tablet */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Footer: 3 equal columns on desktop */
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+    }
+}
+
+@media (min-width: 480px) {
+    .hero-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .hero-img {
+        width: 110px;
+        max-height: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .heroes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-img {
+        width: 140px;
+    }
+    
+    /* Anime Tablet */
+    .anime-main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        align-items: start;
+        justify-content: start;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .episodes-list {
+        max-height: calc((100vw - 300px) * 9 / 16);
+    }
+}
+
+@media (min-width: 1024px) {
+    .anime-main {
+        grid-template-columns: minmax(0, 1fr) 280px;
+    }
+    .episodes-list {
+        max-height: calc((100vw - 360px) * 9 / 16);
+    }
+}
+
+@media (min-width: 1280px) {
+    .heroes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+    
+    .anime-main {
+        grid-template-columns: minmax(0, 900px) 280px;
+    }
+    .video-container {
+        max-width: 900px;
+    }
+    .episodes-list {
+        max-height: calc(900px * 9 / 16); 
+    }
+}
+
+@media (min-width: 1920px) {
+    .heroes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1600px;
+    }
+    
+    .anime-main {
+        grid-template-columns: minmax(0, 960px) 300px;
+        max-width: 1600px;
+    }
+    .video-container {
+        max-width: 960px;
+    }
+    .episodes-list {
+        max-height: calc(960px * 9 / 16); 
+    }
+}
+
+@media (min-width: 2560px) { /* TV Screens */
+    body { font-size: 24px; }
+    .top-bar { padding: 20px 40px; height: 120px; }
+    .bar { padding: 15px 30px; font-size: 32px; }
+    
+    .heroes-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 2200px;
+    }
+    .hero-img {
+        width: 200px;
+    }
+    
+    .anime-main { 
+        grid-template-columns: minmax(0, 1400px) 400px; 
+        max-width: 2000px;
+    }
+    .video-container {
+        max-width: 1400px;
+    }
+    .episodes-list {
+        max-height: calc(1400px * 9 / 16);
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .qismlar { font-size: 20px; padding: 12px; }
+
+    /* Footer: large TV scaling */
+    footer { padding: clamp(48px, 4vw, 80px) clamp(40px, 3vw, 80px); }
+    .footer-container {
+        max-width: 2400px;
+        gap: clamp(48px, 4vw, 96px);
+    }
+    .footer-title { font-size: clamp(24px, 1.5vw, 36px); }
+    .footer-text, .footer-link { font-size: clamp(18px, 1.2vw, 28px); }
+    .footer-link svg { width: 36px; height: 36px; }
+}
+
+@media (min-width: 3840px) {
+    .heroes-grid {
+        max-width: 3000px;
+    }
+
+    .anime-main { 
+        grid-template-columns: minmax(0, 1900px) 500px; 
+        max-width: 2600px;
+    }
+    .video-container {
+        max-width: 1900px;
+    }
+    .episodes-list {
+        max-height: calc(1900px * 9 / 16);
+    }
+    .qismlar { font-size: 28px; padding: 16px; }
+
+    /* Footer: 4K scaling */
+    footer { padding: clamp(60px, 3vw, 100px) clamp(60px, 2.5vw, 100px); }
+    .footer-container {
+        max-width: 3200px;
+        gap: clamp(64px, 3vw, 128px);
+    }
+    .footer-title { font-size: clamp(30px, 1.2vw, 48px); }
+    .footer-text, .footer-link { font-size: clamp(22px, 1vw, 36px); }
+    .footer-link svg { width: 48px; height: 48px; }
+}
