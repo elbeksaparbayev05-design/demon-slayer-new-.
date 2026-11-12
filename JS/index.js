@@ -18,13 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.toggle("nav-open", isOpen);
             hamburger.setAttribute("aria-expanded", String(isOpen));
             hamburger.setAttribute("aria-label", isOpen ? "Navigatsiyani yopish" : "Navigatsiyani ochish");
-            if (isOpen) closeButton.focus();
+            if (isOpen && closeButton) closeButton.focus();
         });
 
-        closeButton.addEventListener("click", () => {
-            closeMenu();
-            hamburger.focus();
-        });
+        if (closeButton) {
+            closeButton.addEventListener("click", () => {
+                closeMenu();
+                hamburger.focus();
+            });
+        }
 
         nav.addEventListener("click", (event) => {
             if (event.target.closest("a")) {
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
+            if (event.key === "Escape" && navPanel.classList.contains("open")) {
                 closeMenu();
                 hamburger.focus();
             }
