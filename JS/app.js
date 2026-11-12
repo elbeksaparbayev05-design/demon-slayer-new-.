@@ -36,6 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!videoFrame || !titleElement || !episodesList) return;
 
+    const videoFrameWrapper = videoFrame.parentElement;
+    const minimumPlayerWidth = 533;
+
+    function resizeVideoFrame() {
+        const wrapperWidth = videoFrameWrapper.clientWidth;
+        const playerWidth = Math.max(wrapperWidth, minimumPlayerWidth);
+
+        videoFrame.style.width = `${playerWidth}px`;
+        videoFrame.style.height = `${playerWidth * 9 / 16}px`;
+        videoFrame.style.transform = `scale(${wrapperWidth / playerWidth})`;
+    }
+
+    resizeVideoFrame();
+    window.addEventListener("resize", resizeVideoFrame);
+
     // Set initial video (Episode 1)
     if (episodes.length > 0) {
         setEpisode(episodes[0]);
