@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carme&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./logo .png" type="image/png">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../IMAGE/logo%20.png" type="image/png">
 </head>
 <body>
     <header class="top-bar">
@@ -17,10 +17,11 @@
             <div class="logo-demon">Demon</div>
             <div class="logo-slayer">Slayer</div>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <button class="hamburger" id="hamburger" aria-label="Navigatsiyani ochish" aria-controls="nav-panel" aria-expanded="false">
             &#9776;
         </button>
-        <nav class="nav-container">
+        <nav class="nav-container" id="nav-panel">
+            <button class="nav-close" id="nav-close" type="button" aria-label="Navigatsiyani yopish">&times;</button>
             <ul class="nav" id="nav-menu">
                 <li><a id="index" class="bar" href="index.html">Asosiy</a></li>
                 <li><a id="malumot" class="bar" href="malumot.html">Malumot</a></li>
@@ -33,7 +34,7 @@
 
     <main class="anime-main">
         <div class="video-container">
-            <iframe id="myVideo" class="video-frame" allowfullscreen allow="autoplay" loading="lazy"></iframe>
+            <iframe id="myVideo" class="video-frame" title="Iblislar Qotili video pleeri" allowfullscreen allow="autoplay" loading="lazy"></iframe>
             <h1 id="qismNomi" class="video-title">Iblislar Qotili</h1>
         </div>
         <div class="episodes-wrapper">
@@ -68,7 +69,7 @@
             </div>
         </div>
     </footer>
-    <script src="./app.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="../JS/app.js" defer></script>
+    <script src="../JS/index.js" defer></script>
 </body>
 </html>
